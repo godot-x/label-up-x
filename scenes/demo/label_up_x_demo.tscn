@@ -1,0 +1,275 @@
+[gd_scene format=3 uid="uid://h7bxb0olmfb"]
+
+[ext_resource type="Script" uid="uid://y6ax0t8tkuof" path="res://scenes/demo/label_up_x_demo.gd" id="1_script"]
+
+[node name="LabelUpXDemo" type="Control" unique_id=1528231686]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="WorldCharacterNode" type="Node2D" parent="." unique_id=197938501]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1949025682]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ScrollContainer" unique_id=601251847]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="ScrollContainer/VBox" unique_id=1504911284]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "LabelUpX Demo"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="ScrollContainer/VBox" unique_id=1955507321]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Stress Test" type="MarginContainer" parent="ScrollContainer/VBox/TabContainer" unique_id=119713849]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+metadata/_tab_index = 0
+
+[node name="VBox" type="VBoxContainer" parent="ScrollContainer/VBox/TabContainer/Stress Test" unique_id=1636292177]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Stats" type="HBoxContainer" parent="ScrollContainer/VBox/TabContainer/Stress Test/VBox" unique_id=962535188]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="ActiveCount" type="Label" parent="ScrollContainer/VBox/TabContainer/Stress Test/VBox/Stats" unique_id=406402247]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Active: 0"
+
+[node name="FPS" type="Label" parent="ScrollContainer/VBox/TabContainer/Stress Test/VBox/Stats" unique_id=1668360508]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "FPS: 0"
+
+[node name="PoolSize" type="Label" parent="ScrollContainer/VBox/TabContainer/Stress Test/VBox/Stats" unique_id=113436855]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Pool: 0"
+
+[node name="Grid" type="GridContainer" parent="ScrollContainer/VBox/TabContainer/Stress Test/VBox" unique_id=1376172277]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="Spawn10k" type="Button" parent="ScrollContainer/VBox/TabContainer/Stress Test/VBox/Grid" unique_id=288967442]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Spawn 10,000 Labels"
+
+[node name="ClearAll" type="Button" parent="ScrollContainer/VBox/TabContainer/Stress Test/VBox/Grid" unique_id=848751352]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Clear All"
+
+[node name="Style Showcase" type="MarginContainer" parent="ScrollContainer/VBox/TabContainer" unique_id=969415024]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+metadata/_tab_index = 1
+
+[node name="VBox" type="VBoxContainer" parent="ScrollContainer/VBox/TabContainer/Style Showcase" unique_id=516288016]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StyleGrid" type="GridContainer" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox" unique_id=244279034]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 5
+
+[node name="Options" type="HBoxContainer" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox" unique_id=718805892]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="RandomDir" type="CheckBox" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Options" unique_id=1188944169]
+layout_mode = 2
+text = "Random direction"
+
+[node name="MotionLabel" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Options" unique_id=1188944170]
+layout_mode = 2
+text = "Motion:"
+
+[node name="MotionOption" type="OptionButton" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Options" unique_id=1188944171]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 6
+popup/item_0/id = 0
+popup/item_1/id = 1
+popup/item_2/id = 2
+popup/item_3/id = 3
+popup/item_4/id = 4
+popup/item_5/id = 5
+
+[node name="ExitLabel" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Options" unique_id=1188944172]
+layout_mode = 2
+text = "Exit:"
+
+[node name="ExitOption" type="OptionButton" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Options" unique_id=1188944173]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sliders" type="VBoxContainer" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox" unique_id=1214596482]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="DurationLabel" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=1655543665]
+layout_mode = 2
+text = "Duration (s):"
+
+[node name="DurationSlider" type="HSlider" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=1655543666]
+layout_mode = 2
+min_value = 0.2
+max_value = 3.0
+step = 0.1
+value = 1.0
+
+[node name="DurationValue" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=408312667]
+layout_mode = 2
+text = "1.00"
+
+[node name="DistanceLabel" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=1426778469]
+layout_mode = 2
+text = "Distance (px):"
+
+[node name="DistanceSlider" type="HSlider" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=1426778470]
+layout_mode = 2
+min_value = 20.0
+max_value = 200.0
+value = 80.0
+
+[node name="DistanceValue" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=1773414562]
+layout_mode = 2
+text = "80"
+
+[node name="FontSizeLabel" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=1139496]
+layout_mode = 2
+text = "Font size:"
+
+[node name="FontSizeSlider" type="HSlider" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=1139497]
+layout_mode = 2
+min_value = 12.0
+max_value = 64.0
+value = 24.0
+
+[node name="FontSizeValue" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=621317409]
+layout_mode = 2
+text = "24"
+
+[node name="OutlineLabel" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=1478736838]
+layout_mode = 2
+text = "Outline size:"
+
+[node name="OutlineSlider" type="HSlider" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=1478736839]
+layout_mode = 2
+max_value = 24.0
+
+[node name="OutlineValue" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=936275725]
+layout_mode = 2
+text = "0"
+
+[node name="ScaleInitLabel" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=798008355]
+layout_mode = 2
+text = "Initial scale:"
+
+[node name="ScaleInitSlider" type="HSlider" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=798008356]
+layout_mode = 2
+min_value = 0.2
+max_value = 5.0
+step = 0.1
+value = 1.0
+
+[node name="ScaleInitValue" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=1996637979]
+layout_mode = 2
+text = "1.00"
+
+[node name="ScaleFinalLabel" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=2046350721]
+layout_mode = 2
+text = "Final scale:"
+
+[node name="ScaleFinalSlider" type="HSlider" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=2046350722]
+layout_mode = 2
+min_value = 0.2
+max_value = 5.0
+step = 0.1
+value = 1.0
+
+[node name="ScaleFinalValue" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders" unique_id=857724056]
+layout_mode = 2
+text = "1.00"
+
+[node name="SpawnAreaLabel" type="Label" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox" unique_id=563971220]
+layout_mode = 2
+text = "Click below to spawn (or use style buttons):"
+
+[node name="SpawnArea" type="ColorRect" parent="ScrollContainer/VBox/TabContainer/Style Showcase/VBox" unique_id=597160326]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+color = Color(0.18, 0.18, 0.22, 0.9)
+
+[node name="World Example" type="MarginContainer" parent="ScrollContainer/VBox/TabContainer" unique_id=1087096678]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+metadata/_tab_index = 2
+
+[node name="VBox" type="VBoxContainer" parent="ScrollContainer/VBox/TabContainer/World Example" unique_id=1638176459]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Options" type="HBoxContainer" parent="ScrollContainer/VBox/TabContainer/World Example/VBox" unique_id=2112564725]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="FollowToggle" type="CheckBox" parent="ScrollContainer/VBox/TabContainer/World Example/VBox/Options" unique_id=1626021442]
+layout_mode = 2
+text = "Follow target (spawn on character)"
+
+[node name="WorldPanel" type="Panel" parent="ScrollContainer/VBox/TabContainer/World Example/VBox" unique_id=679422743]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Character" type="ColorRect" parent="ScrollContainer/VBox/TabContainer/World Example/VBox/WorldPanel" unique_id=1370060772]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3, 0.6, 0.9, 1)
