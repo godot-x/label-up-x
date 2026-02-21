@@ -132,6 +132,10 @@ Open **scenes/demo/label_up_x_demo.tscn** and run the project.
 4. **Limit spawn rate** if needed (e.g. cap damage numbers per frame) so the pool doesn’t grow unbounded.
 5. Use **dismiss(id)** or **clear_all()** when changing scenes or closing UIs to return labels to the pool.
 
+## Screenshot
+
+https://github.com/user-attachments/assets/7ceacff4-30fe-4698-b7fc-6ccee16691f6
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
