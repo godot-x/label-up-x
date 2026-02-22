@@ -57,10 +57,8 @@ func _world_to_layer(world_pos: Vector2) -> Vector2:
 	var vp: Viewport = _canvas_layer.get_viewport()
 	if not vp:
 		return world_pos
-	var cam: Camera2D = vp.get_camera_2d()
-	if not cam:
-		return world_pos
-	return cam.get_screen_transform() * world_pos
+	# use the same transform the viewport uses to draw the canvas (camera, zoom, etc.)
+	return vp.get_canvas_transform() * world_pos
 
 func _process(_delta: float) -> void:
 	if _follow_target and is_instance_valid(_follow_target):
