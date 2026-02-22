@@ -14,7 +14,7 @@ A high-performance floating text system for Godot 4.5+ (2D) designed for damage 
 - **Object pool**: Pre-allocated nodes, no runtime allocation after warmup
 - **Style-driven**: Every visual and animation is configurable via `LabelUpXStyle` (Resource)
 - **Built-in styles**: Default, Damage, Critical, Heal, XP, Gold, Fire, Ice, Poison
-- **Movement**: 10 directions (UP, DOWN, RANDOM, etc.), distance, duration, easing, optional Curve
+- **Movement**: 13 directions (UP, DOWN, cardinal/diagonal, UP_FAN, DOWN_FAN, LEFT_FAN, RIGHT_FAN, RANDOM), fan spread for *_FAN, distance, duration, easing, optional Curve
 - **Motion styles**: Straight, Arc, Wiggle, Shake, Scale up, Scale down
 - **Appear**: Fade, scale, pop, scale-and-fade
 - **Exit**: None, fade out, scale out, or scale and fade
@@ -99,6 +99,7 @@ var style = LabelUpXStyle.new()
 style.font_size = 28
 style.font_color = Color.GOLD
 style.movement_direction = LabelUpXEnums.MovementDirection.UP
+style.movement_fan_spread_degrees = 90.0  # used by UP_FAN, DOWN_FAN, LEFT_FAN, RIGHT_FAN
 style.duration = 1.2
 style.distance = 80.0
 style.motion_style = LabelUpXEnums.MotionStyle.SCALE_UP

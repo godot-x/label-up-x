@@ -204,15 +204,23 @@ func _get_movement_direction() -> Vector2:
 			dir = Vector2(-0.707, 0.707)
 		LabelUpXEnums.MovementDirection.DOWN_RIGHT:
 			dir = Vector2(0.707, 0.707)
+		LabelUpXEnums.MovementDirection.UP_FAN:
+			dir = _fan_direction(-PI / 2.0)
+		LabelUpXEnums.MovementDirection.DOWN_FAN:
+			dir = _fan_direction(PI / 2.0)
+		LabelUpXEnums.MovementDirection.LEFT_FAN:
+			dir = _fan_direction(PI)
+		LabelUpXEnums.MovementDirection.RIGHT_FAN:
+			dir = _fan_direction(0.0)
 		LabelUpXEnums.MovementDirection.RANDOM:
 			var angle: float = randf() * TAU
 			dir = Vector2.from_angle(angle)
-		LabelUpXEnums.MovementDirection.RANDOM_VERTICAL:
-			var angle_rad: float = randf_range(-3.0 * PI / 4.0, -PI / 4.0)
-			dir = Vector2.from_angle(angle_rad)
-		_:
-			dir = Vector2.UP
 	return dir
+
+func _fan_direction(base_angle_rad: float) -> Vector2:
+	var spread_rad: float = deg_to_rad(_style.movement_fan_spread_degrees) * 0.5
+	var angle: float = base_angle_rad + randf_range(-spread_rad, spread_rad)
+	return Vector2.from_angle(angle)
 
 func _on_movement_done() -> void:
 	# Stop following so exit animation plays where movement ended, not at target feet

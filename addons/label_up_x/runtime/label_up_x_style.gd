@@ -33,6 +33,8 @@ extends Resource
 # ---------------------------------------------------------------------------
 @export_group("Movement")
 @export var movement_direction: LabelUpXEnums.MovementDirection = LabelUpXEnums.MovementDirection.UP
+@export var movement_fan_spread_degrees: float = 90.0:
+	set(v): movement_fan_spread_degrees = clampf(v, 1.0, 180.0)
 @export var distance: float = 80.0:
 	set(v): distance = maxf(0.0, v)
 @export var duration: float = 1.2:

@@ -24,8 +24,11 @@ extends Control
 @onready var world_character: ColorRect = $"ScrollContainer/VBox/TabContainer/World Example/VBox/WorldPanel/Character"
 @onready var follow_toggle: CheckBox = $"ScrollContainer/VBox/TabContainer/World Example/VBox/Options/FollowToggle"
 @onready var world_character_node: Node2D = $WorldCharacterNode
+@onready var direction_option: OptionButton = $"ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Options/DirectionOption"
 @onready var motion_option: OptionButton = $"ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Options/MotionOption"
 @onready var exit_option: OptionButton = $"ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Options/ExitOption"
+@onready var fan_spread_slider: HSlider = $"ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders/FanSpreadSlider"
+@onready var fan_spread_value: Label = $"ScrollContainer/VBox/TabContainer/Style Showcase/VBox/Sliders/FanSpreadValue"
 
 var _styles: LabelUpXStyles
 var _current_style_key: StringName = LabelUpXStyles.DEFAULT
@@ -64,6 +67,21 @@ func _on_stress_clear() -> void:
 	LabelUpX.clear_all()
 
 func _setup_style_showcase() -> void:
+	if direction_option:
+		direction_option.clear()
+		direction_option.add_item("Up", LabelUpXEnums.MovementDirection.UP)
+		direction_option.add_item("Down", LabelUpXEnums.MovementDirection.DOWN)
+		direction_option.add_item("Left", LabelUpXEnums.MovementDirection.LEFT)
+		direction_option.add_item("Right", LabelUpXEnums.MovementDirection.RIGHT)
+		direction_option.add_item("Up left", LabelUpXEnums.MovementDirection.UP_LEFT)
+		direction_option.add_item("Up right", LabelUpXEnums.MovementDirection.UP_RIGHT)
+		direction_option.add_item("Down left", LabelUpXEnums.MovementDirection.DOWN_LEFT)
+		direction_option.add_item("Down right", LabelUpXEnums.MovementDirection.DOWN_RIGHT)
+		direction_option.add_item("Up fan", LabelUpXEnums.MovementDirection.UP_FAN)
+		direction_option.add_item("Down fan", LabelUpXEnums.MovementDirection.DOWN_FAN)
+		direction_option.add_item("Left fan", LabelUpXEnums.MovementDirection.LEFT_FAN)
+		direction_option.add_item("Right fan", LabelUpXEnums.MovementDirection.RIGHT_FAN)
+		direction_option.add_item("Random", LabelUpXEnums.MovementDirection.RANDOM)
 	if motion_option:
 		motion_option.clear()
 		motion_option.add_item("Straight", LabelUpXEnums.MotionStyle.STRAIGHT)
@@ -97,6 +115,8 @@ func _setup_style_showcase() -> void:
 		scale_init_slider.value_changed.connect(_on_slider_changed)
 	if scale_final_slider:
 		scale_final_slider.value_changed.connect(_on_slider_changed)
+	if fan_spread_slider:
+		fan_spread_slider.value_changed.connect(_on_slider_changed)
 	if spawn_area_rect:
 		spawn_area_rect.gui_input.connect(_on_spawn_area_input)
 
@@ -120,6 +140,8 @@ func _update_slider_labels() -> void:
 		scale_init_value.text = "%.2f" % scale_init_slider.value
 	if scale_final_value and scale_final_slider:
 		scale_final_value.text = "%.2f" % scale_final_slider.value
+	if fan_spread_value and fan_spread_slider:
+		fan_spread_value.text = "%.0f" % fan_spread_slider.value
 
 func _spawn_style_at_random() -> void:
 	var style: LabelUpXStyle = _styles.get_style(_current_style_key).duplicate()
@@ -138,6 +160,9 @@ func _spawn_style_at_random() -> void:
 		style.final_scale = Vector2(fin_s, fin_s)
 	if random_dir_check and random_dir_check.button_pressed:
 		style.movement_direction = LabelUpXEnums.MovementDirection.RANDOM
+	elif direction_option:
+		style.movement_direction = direction_option.get_selected_id() as LabelUpXEnums.MovementDirection
+	style.movement_fan_spread_degrees = fan_spread_slider.value if fan_spread_slider else 90.0
 	if motion_option:
 		style.motion_style = motion
 	if exit_option:
@@ -177,6 +202,9 @@ func _on_spawn_area_input(event: InputEvent) -> void:
 			style.final_scale = Vector2(fin_s, fin_s)
 		if random_dir_check and random_dir_check.button_pressed:
 			style.movement_direction = LabelUpXEnums.MovementDirection.RANDOM
+		elif direction_option:
+			style.movement_direction = direction_option.get_selected_id() as LabelUpXEnums.MovementDirection
+		style.movement_fan_spread_degrees = fan_spread_slider.value if fan_spread_slider else 90.0
 		if motion_option:
 			style.motion_style = motion_click
 		if exit_option:

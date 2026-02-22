@@ -10,8 +10,11 @@ enum MovementDirection {
 	UP_RIGHT,
 	DOWN_LEFT,
 	DOWN_RIGHT,
-	RANDOM,
-	RANDOM_VERTICAL
+	UP_FAN,
+	DOWN_FAN,
+	LEFT_FAN,
+	RIGHT_FAN,
+	RANDOM
 }
 
 enum MotionStyle {
